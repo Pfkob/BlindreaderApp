@@ -31,42 +31,53 @@ class MyHomePage extends StatelessWidget {
                 name: "iPhone",
                 description: "iPhone is the stylist phone ever",
                 price: 1000,
+                abc: false,
                 image: "iphone15pro-digitalmat-gallery-1-202309.png"),
             ProductBox(
                 name: "Pixel",
                 description: "Pixel is the most featureful phone ever",
                 price: 800,
+                abc: false,
                 image: "2025285613.jpg"),
             ProductBox(
                 name: "Laptop",
                 description: "Laptop is most productive development tool",
                 price: 2000,
-                image: "best 15 inch laptops in India1695872319038.jpg"),
+                abc: true,
+                image:
+                    " https://static.javatpoint.com/computer/images/what-is-a-floppy-disk.png"),
             ProductBox(
                 name: "Tablet",
                 description:
                     "Tablet is the most useful device ever for meeting",
                 price: 1500,
+                abc: false,
                 image: "tab.png"),
             ProductBox(
                 name: "Pendrive",
                 description: "iPhone is the stylist phone ever",
                 price: 100,
-                image: "png-clipart-sandisk-pendrive-usb-flash-disk.png"),
+                abc: true,
+                image:
+                    "https://media.wired.com/photos/64029ef1369bdab06d01df97/master/w_2240,c_limit/Why-The-Floppy-Disk-Just-Wont-Die-Business-1290668814.jpg"),
             ProductBox(
                 name: "Floppy Drive",
                 description: "iPhone is the stylist phone ever",
                 price: 20,
-                image: "best 15 inch laptops in India1695872319038.jpg"),
+                abc: true,
+                image:
+                    " https://media.wired.com/photos/64029ef1369bdab06d01df97/master/w_2240,c_limit/Why-The-Floppy-Disk-Just-Wont-Die-Business-1290668814.jpg"),
             ProductBox(
                 name: "iPhone",
                 description: "iPhone is the stylist phone ever",
                 price: 1000,
+                abc: false,
                 image: "2025285613.jpg"),
             ProductBox(
                 name: "iPhone",
                 description: "iPhone is the stylist phone ever",
                 price: 1000,
+                abc: false,
                 image: "best 15 inch laptops in India1695872319038.jpg"),
           ],
         ));
@@ -168,12 +179,14 @@ class ProductBox extends StatelessWidget {
       required this.name,
       required this.description,
       required this.price,
+      required this.abc,
       required this.image})
       : super(key: key);
   final String name;
   final String description;
   final int price;
   final String image;
+  final bool abc;
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.all(2),
@@ -182,7 +195,9 @@ class ProductBox extends StatelessWidget {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-              Image.asset("assets/appimages/" + image),
+              abc
+                  ? Image.network(image, width: 80, height: 80)
+                  : Image.asset("assets/appimages/" + image),
               Expanded(
                   child: Container(
                       padding: EdgeInsets.all(5),
