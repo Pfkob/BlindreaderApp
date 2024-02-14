@@ -1,0 +1,3 @@
+[submodule "BlindreaderApp"]
+	path = BlindreaderApp
+	url = https://github.com/Pfkob/BlindreaderApp.git
